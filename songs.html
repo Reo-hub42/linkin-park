@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <title>Linkin Park Vault - More Songs</title>
+</head>
+<body>
+  <!-- HEADER -->
+  <div class="header">
+    <img class="logo" src="images/logo.png" />
+    <div class="header-links">
+      <a href="index.html">Home</a>
+      <a href="songs.html">More Songs</a>
+      <a href="about.html">About</a>
+      <button class="btn">Sign in</button>
+    </div>
+  </div>
+
+  <!-- Header Banner -->
+  <div class="landing-page">
+    <div class="landing-page-left-section">
+      <span>Full Ranking</span>
+      <h1>Remaining Top Songs</h1>
+      <p>
+        Check out the rest of the ultimate top 10 list featuring iconic tracks from Faint to Breaking the Habit.
+      </p>
+    </div>
+  </div>
+
+  <!-- Top Songs Part 2 -->
+  <div class="trending-container">
+    <span>Rankings</span>
+    <div class="trending-header">
+      <h1>Top 6 - 10 Tracks</h1>
+    </div>
+    <div class="trending-cards">
+
+      <!-- Card 6 -->
+      <div class="card">
+        <img class="thumb" src="images/faint.jpg" />
+        <div class="card-info">
+          <div class="card-name">
+            <p>6. Meteora</p>
+            <h3>Faint</h3>
+          </div>
+          <audio id="song-6" src="audio/faint.mp3"></audio>
+          <a class="play-btn" onclick="playSong('song-6')">▶</a>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="card">
+        <img class="thumb" src="images/somewhere.jpg" />
+        <div class="card-info">
+          <div class="card-name">
+            <p>7. Meteora</p>
+            <h3>Somewhere I Belong</h3>
+          </div>
+          <audio id="song-7" src="audio/somewhere.mp3"></audio>
+          <a class="play-btn" onclick="playSong('song-7')">▶</a>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="card">
+        <img class="thumb" src="images/crawling.jpg" />
+        <div class="card-info">
+          <div class="card-name">
+            <p>8. Hybrid Theory</p>
+            <h3>Crawling</h3>
+          </div>
+          <audio id="song-8" src="audio/crawling.mp3"></audio>
+          <a class="play-btn" onclick="playSong('song-8')">▶</a>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="card">
+        <img class="thumb" src="images/burnitdown.jpg" />
+        <div class="card-info">
+          <div class="card-name">
+            <p>9. Living Things</p>
+            <h3>Burn It Down</h3>
+          </div>
+          <audio id="song-9" src="audio/burnitdown.mp3"></audio>
+          <a class="play-btn" onclick="playSong('song-9')">▶</a>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="card">
+        <img class="thumb" src="images/breakingthehabit.jpg" />
+        <div class="card-info">
+          <div class="card-name">
+            <p>10. Meteora</p>
+            <h3>Breaking The Habit</h3>
+          </div>
+          <audio id="song-10" src="audio/breakingthehabit.mp3"></audio>
+          <a class="play-btn" onclick="playSong('song-10')">▶</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function playSong(id) {
+      var audio = document.getElementById(id);
+      
+      var allAudios = document.getElementsByTagName('audio');
+      for (var i = 0; i < allAudios.length; i++) {
+        if (allAudios[i] !== audio) {
+          allAudios[i].pause();
+        }
+      }
+
+      if (audio.paused) {
+        audio.play().catch(function(error) {
+          console.error("Audio error:", error);
+          alert("Cannot find audio file: " + audio.getAttribute('src') + "\nMake sure it is inside your 'audio' folder!");
+        });
+      } else {
+        audio.pause();
+      }
+    }
+  </script>
+</body>

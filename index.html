@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <title>Linkin Park Vault - Home</title>
+</head>
+<body>
+  <!-- HEADER -->
+  <div class="header">
+    <img class="logo" src="images/logo.png" />
+    <div class="header-links">
+      <a href="index.html">Home</a>
+      <a href="songs.html">More Songs</a>
+      <a href="about.html">About</a>
+      <button class="btn">Sign in</button>
+    </div>
+  </div>
+
+  <!-- Landing Page -->
+  <div class="landing-page">
+    <div class="landing-page-left-section">
+      <span>Welcome Rock Fans!</span>
+      <h1>Top 10 Linkin Park Songs</h1>
+      <p>
+        Explore the legendary tracks by Linkin Park that defined alternative rock and nu-metal generations across the globe.
+      </p>
+      <div class="landing-page-search">
+        <input placeholder="Search songs..." />
+        <button class="btn">SEARCH</button>
+      </div>
+    </div>
+    <div class="landing-page-image-container">
+      <img src="images/band.jpg" />
+    </div>
+  </div>
+
+  <!-- Top Songs Part 1 -->
+  <div class="trending-container">
+    <span>Top Tracks</span>
+    <div class="trending-header">
+      <h1>Top 1 - 5 Tracks</h1>
+      <a href="songs.html"><button class="btn">View All 10</button></a>
+    </div>
+    <div class="trending-cards">
+      
+      <!-- Card 1 -->
+      <div class="card">
+        <img class="thumb" src="images/numb.jpg" />
+        <div class="card-info">
+          <div class="card-name">
+            <p>1. Meteora</p>
+            <h3>Numb</h3>
+          </div>
+          <audio id="song-1" src="audio/numb.mp3"></audio>
+          <a class="play-btn" onclick="playSong('song-1')">▶</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img class="thumb" src="images/intheend.jpg" />
+        <div class="card-info">
+          <div class="card-name">
+            <p>2. Hybrid Theory</p>
+            <h3>In The End</h3>
+          </div>
+          <audio id="song-2" src="audio/intheend.mp3"></audio>
+          <a class="play-btn" onclick="playSong('song-2')">▶</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img class="thumb" src="images/whativedone.jpg" />
+        <div class="card-info">
+          <div class="card-name">
+            <p>3. Minutes To Midnight</p>
+            <h3>What I've Done</h3>
+          </div>
+          <audio id="song-3" src="audio/whativedone.mp3"></audio>
+          <a class="play-btn" onclick="playSong('song-3')">▶</a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <img class="thumb" src="images/newdivide.jpg" />
+        <div class="card-info">
+          <div class="card-name">
+            <p>4. Transformers OST</p>
+            <h3>New Divide</h3>
+          </div>
+          <audio id="song-4" src="audio/newdivide.mp3"></audio>
+          <a class="play-btn" onclick="playSong('song-4')">▶</a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card">
+        <img class="thumb" src="images/castleofglass.jpg" />
+        <div class="card-info">
+          <div class="card-name">
+            <p>5. Living Things</p>
+            <h3>Castle Of Glass</h3>
+          </div>
+          <audio id="song-5" src="audio/castleofglass.mp3"></audio>
+          <a class="play-btn" onclick="playSong('song-5')">▶</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function playSong(id) {
+      var audio = document.getElementById(id);
+      
+      var allAudios = document.getElementsByTagName('audio');
+      for (var i = 0; i < allAudios.length; i++) {
+        if (allAudios[i] !== audio) {
+          allAudios[i].pause();
+        }
+      }
+
+      if (audio.paused) {
+        audio.play().catch(function(error) {
+          console.error("Audio error:", error);
+          alert("Cannot find audio file: " + audio.getAttribute('src') + "\nMake sure it is inside your 'audio' folder!");
+        });
+      } else {
+        audio.pause();
+      }
+    }
+  </script>
+</body>
